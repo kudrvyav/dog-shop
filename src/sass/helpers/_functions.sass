@@ -1,0 +1,15 @@
+@mixin font_face($path, $file_name, $weight: normal, $style: normal, $font_name: $file_name)
+  @font-face
+    font-family: $font_name
+    src: url($path + $file-name + ".eot")
+    src: local($file_name),
+    url($path + $file-name + ".eot?#iefix") format("embedded-opentype"),
+    url($path + $file-name + ".woff") format("woff"),
+    url($path + $file-name + ".ttf") format('truetype')
+    font-weight: $weight
+    font-style: $style
+
++font_face("/assets/fonts/Roboto/", "Roboto-Light", 300, normal, "Roboto")
++font_face("/assets/fonts/Roboto/", "Roboto-Regular", normal, normal, "Roboto")
++font_face("/assets/fonts/Roboto/", "Roboto-Medium", 500, normal, "Roboto")
++font_face("/assets/fonts/Roboto/", "Roboto-Bold", bold, normal, "Roboto")

@@ -1,0 +1,8 @@
+mixin menu
+    ul.nav
+        li.nav-item
+            a.nav-link(class={active: currentUrl === '/index'}, href='/index.html')
+                span Главная
+        li.nav-item
+            a.nav-link(class={active: currentUrl === '/uikit'}, href='/uikit.html')
+                span Uikit
