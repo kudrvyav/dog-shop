@@ -1,6 +1,20 @@
 mixin header
-    header
-        .container
-            .row
-                .col-12
-                    +menu
+    header.header
+        .container-fluid
+            .header-logo
+                img.header-logo_img(src="/assets/images/header/logo.svg", alt="logo")
+            .header-menu
+                a.header-menu__item(href="#") Service Animal
+                a.header-menu__item(href="#") ESA
+                a.header-menu__item(href="#") Shop
+                a.header-menu__item(href="#") Blog
+                a.header-menu__item(href="#") FAQ
+                a.header-menu__item(href="#") Flying with a Dog
+                a.header-menu__item(href="#") Verify Registration
+            .header-info
+                .info-basket
+                    img.info-basket__img(src="/assets/images/header/basket.svg", alt="basket")
+                    span.info-basket__number 2
+                .info-registration
+                    a.info-registration__button(href="#") Sign Up
+                
