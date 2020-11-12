@@ -25,3 +25,71 @@
   font-size: 18px
   line-height: 23px
   color: #273238
+
+.work-wrapper
+  padding: 104px 145px 128px
+  background: #3C5FAC
+
+.work-wrap
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.work__title
+  font-weight: 600
+  font-size: 36px
+  line-height: 46px
+  color: #FFFFFF
+  margin-bottom: 16px
+
+.work__description
+  font-weight: normal
+  font-size: 18px
+  line-height: 23px
+  color: #FFFFFF
+
+.work-cards
+  max-width: 1076px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.work-card
+  display: flex
+  position: relative
+  flex-direction: column
+  align-items: center
+  text-align: center
+  flex-basis: 23.8%
+  color: #FFFFFF
+
+.work-card::before
+  content: ''
+  background: url(/assets/images/index/workUp.svg) no-repeat
+  width: 129.5px
+  height: 49.5px
+  position: absolute
+  right: -129.5px
+  top: 86px
+
+.work-card:last-child::before
+  display: none
+
+.work-card:nth-child(even)
+  margin-top: 44px
+
+.work-card:nth-child(even)::before
+  background: url(/assets/images/index/workDown.svg) no-repeat
+  top: 120px
+  
+.work-card__title
+  font-weight: 600
+  font-size: 18px
+  line-height: 23px
+  margin-bottom: 12px
+
+.work-card__text
+  font-weight: normal
+  font-size: 16px
+  line-height: 20px
+  opacity: 0.8
