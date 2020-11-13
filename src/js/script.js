@@ -17,4 +17,9 @@ $(document).ready(function () {
             prevEl: '.swiper-button-prev',
         },
     });
+
+    $('.js-choose').on("click", function () {
+        $('.choose-item-card').removeClass('active');
+        $(this).parent().toggleClass('active');
+    });
 });
