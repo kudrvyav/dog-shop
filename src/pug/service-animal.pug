@@ -1,0 +1,33 @@
+extends _include
+
+block vars
+    - var currentUrl = '/service-animal'
+
+block content
+    .first-screen-wrapper(style="background-image: url(/assets/images/index/first-screen-bg.png)")
+        .container
+            .first-screen-wrap
+                h1.first-screen__title Service Dog and ESA registration
+                span.first-screen__description Register your Service Dog, Emotional Support Dog, or Therapy Dog online
+                a.first-screen__button(href="#") Register Now
+    .background-grey
+        .container
+            .advantages-cards
+                    .advantages-card
+                        img.advantages-card__img(src="/assets/images/index/advantages1.svg", alt="")
+                        span.advantages__text No Pets Restrictions
+                    .advantages-card
+                        img.advantages-card__img(src="/assets/images/index/advantages2.svg", alt="")
+                        span.advantages__text No Pet Deposit or Extra Rent
+                    .advantages-card
+                        img.advantages-card__img(src="/assets/images/index/advantages3.svg", alt="")
+                        span.advantages__text Fly Inside Airplane
+                    .advantages-card
+                        img.advantages-card__img(src="/assets/images/index/advantages4.svg", alt="")
+                        span.advantages__text Take your Service Animal anywhere public has access
+                    .advantages-card
+                        img.advantages-card__img(src="/assets/images/index/advantages5.svg", alt="")
+                        span.advantages__text Avoid fees and restrictions on breed, size, and weight
+                    .advantages-card
+                        img.advantages-card__img(src="/assets/images/index/advantages6.svg", alt="")
+                        span.advantages__text No Breed, Size or Weight Restriction
