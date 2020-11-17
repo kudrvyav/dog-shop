@@ -24,4 +24,12 @@ $(function () {
         $('.choose-item-card').removeClass('active');
         $(this).parent().toggleClass('active');
     });
+
+    $('.js-question').on('click', function () {
+        $('.question-item').removeClass('active');
+        $(this).parent().toggleClass('active');
+    });
+
+
+
 });
