@@ -1,24 +1,26 @@
-import Swiper from 'swiper';
+import Swiper from 'swiper'
+import { Navigation, Pagination } from "swiper/js/swiper.esm";
+Swiper.use(Navigation, Pagination)
 
-$(document).ready(function () {
-    var mySwiper = new Swiper ('.swiper-container', {
-        loop: true,
-        slidesPerView: 3,
+$(function () { 
+    var mySwiper = new Swiper ('.title-slider', {
         spaceBetween: 30,
-
+        centeredSlides: true,
+        autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+        },
         pagination: {
-            el: '.swiper-pagination',
-            dynamicBullets: true,
+            el: '.title-slider-pagination',
             clickable: true,
         },
-
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: '.title-slider-next',
+            prevEl: '.title-slider-prev',
+        } 
     });
 
-    $('.js-choose').on("click", function () {
+    $('.js-choose').on('click', function () {
         $('.choose-item-card').removeClass('active');
         $(this).parent().toggleClass('active');
     });
