@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,6 +10,34 @@ const PATHS = {
     dist: path.join(__dirname, '../dist'),
     assets: 'assets/'
 };
+
+
+let plugins = [
+    new MiniCssExtractPlugin({
+        filename: `${PATHS.assets}css/[name].css`
+    }),
+    new CopyWebpackPlugin([
+        {from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts`},
+        {from: `${PATHS.src}/images`, to: `${PATHS.assets}images`},
+        {from: `${PATHS.src}/static`, to: ''}
+    ]),
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    })
+]
+
+
+fs.readdirSync(`${PATHS.src}/pug/`)
+    .filter((file) => file.match(/^[a-zA-Z0-9].*\.pug$/))
+    .map((file) => {
+        let fileName = file.substring(0, file.length - 4)
+        plugins.push(new HtmlWebpackPlugin({
+            template: `${PATHS.src}/pug/${fileName}.pug`,
+            filename: `./${fileName}.html`
+        }))
+    })
 
 module.exports = {
     externals: {
@@ -63,27 +92,5 @@ module.exports = {
             }
         }]
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: `${PATHS.assets}css/[name].css`
-        }),
-        new HtmlWebpackPlugin({
-            template: `${PATHS.src}/pug/index.pug`,
-            filename: './index.html'
-        }),
-        new HtmlWebpackPlugin({
-            template: `${PATHS.src}/pug/uikit.pug`,
-            filename: './uikit.html'
-        }),
-        new CopyWebpackPlugin([
-            {from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts`},
-            {from: `${PATHS.src}/images`, to: `${PATHS.assets}images`},
-            {from: `${PATHS.src}/static`, to: ''}
-        ]),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-        })
-    ],
+    plugins: plugins
 };
