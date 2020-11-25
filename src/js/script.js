@@ -20,9 +20,28 @@ $(function () {
         } 
     });
 
+    var swiper = new Swiper('.pelated-products-wrapper', {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: '.pelated-products-next',
+          prevEl: '.pelated-products-prev',
+        },
+      });
+
     $('.js-choose').on('click', function () {
         $('.choose-item-card').removeClass('active');
         $(this).parent().toggleClass('active');
+    });
+
+    $('.header-menu__item').each(function () {
+        var location = window.location.href;
+        var link = this.href;
+        if (location == link) {
+            $(this).addClass('active');
+        }
     });
 
     $('.js-question').on('click', function () {
